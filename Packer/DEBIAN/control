@@ -1,3 +1,6 @@
-Package: Packer
+Package: Packer 
+Description: This Is Packer For Termux Update
+Author: Landon Cates
 Version: 1.0
 Architecture: all
+Maintainer: Landon Cates
