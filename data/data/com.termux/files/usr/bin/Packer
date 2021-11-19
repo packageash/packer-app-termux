@@ -1,0 +1,35 @@
+
+  
+#!/bin/sh
+
+clear
+
+
+case $1 in
+
+  install-donut)
+    wget https://cdn.glitch.me/ec7fa70f-caec-4ba9-877f-3f809b43f7ea%2FDonut.deb 
+    mv ec7fa70f-caec-4ba9-877f-3f809b43f7ea%2FDonut.deb Donut.deb 
+    dpkg --install Donut.deb 
+    rm Donut.deb
+    ;;
+
+  uninstall-donut)
+    rm /data/data/com.termux/files/usr/bin/donut
+    ;;
+    
+  install-neofetch)
+    wget https://cdn.glitch.me/ec7fa70f-caec-4ba9-877f-3f809b43f7ea%2FNeofetch.deb
+    mv ec7fa70f-caec-4ba9-877f-3f809b43f7ea%2FNeofetch.deb Neofetch.deb 
+    dpkg --install Neofetch.deb 
+    rm Neofetch.deb
+    ;;
+
+  uninstall-neofetch)
+    rm /data/data/com.termux/files/usr/bin/Neofetch
+    ;;
+    
+  *)
+    echo "Nothing Picked To Install"
+    ;;
+esac
