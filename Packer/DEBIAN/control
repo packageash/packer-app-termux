@@ -1,2 +1,3 @@
-Package: Packer-Termux
+Package: Packer
 Version: 1.0
+Architecture: all
