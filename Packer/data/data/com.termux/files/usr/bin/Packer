@@ -1,5 +1,3 @@
-
-  
 #!/bin/sh
 
 clear
@@ -8,28 +6,67 @@ clear
 case $1 in
 
   install-donut)
-    wget https://cdn.glitch.me/ec7fa70f-caec-4ba9-877f-3f809b43f7ea%2FDonut.deb 
-    mv ec7fa70f-caec-4ba9-877f-3f809b43f7ea%2FDonut.deb Donut.deb 
-    dpkg --install Donut.deb 
-    rm Donut.deb
+    sudo mkdir ~/packercache
+    sudo wget https://github.com/packageash/repo/releases/download/1.0-repo-for-1.5-repo-update/donut
+    sudo mv donut ~/packercache
+    sudo cd ~/packercache
+    sudo mv donut /data/data/com.termux/files/usr/bin
+    sudo echo Cleaning Up
+    sudo rm -r ~/packercache
+    sudo clear
+    sudo echo Installed Donut Thingy
+    sudo echo Donut Thingy 1.0
     ;;
 
   uninstall-donut)
-    rm /data/data/com.termux/files/usr/bin/donut
+    sudo rm /data/data/com.termux/files/usr/bin/donut
+    sudo clear
+    sudo echo Uninstalled Donut Thingy
     ;;
     
   install-neofetch)
-    wget https://cdn.glitch.me/ec7fa70f-caec-4ba9-877f-3f809b43f7ea%2FNeofetch.deb
-    mv ec7fa70f-caec-4ba9-877f-3f809b43f7ea%2FNeofetch.deb Neofetch.deb 
-    dpkg --install Neofetch.deb 
-    rm Neofetch.deb
+    sudo mkdir ~/packercache
+    sudo wget https://github.com/packageash/repo/releases/download/1.0-repo-for-1.5-repo-update/neofetch
+    sudo mv neofetch ~/packercache
+    sudo mv /home/packercache/neofetch /usr/local/bin/neofetch
+    sudo echo Cleaning Up
+    sudo rm -r ~/packercache
+    sudo chmod 755 /data/data/com.termux/files/usr/bin/neofetch
+    sudo clear
+    sudo echo Installed NeoFetch
+    sudo echo NeoFetch Version 1.0
     ;;
 
   uninstall-neofetch)
-    rm /data/data/com.termux/files/usr/bin/Neofetch
+    sudo rm /data/data/com.termux/files/usr/bin/neofetch
+    sudo clear
+    sudo echo Uninstalled Neofetch
     ;;
     
+  --version)
+  echo Packer Version 1.5 Repo And Install Runtime Update Release
+    ;;
+    
+    packages)
+    echo 2 Packages Found In Repo:
+    echo Donut Thingy
+    echo Installable By packer install-donut
+    echo Can Be Magneted: No Right Now Because I Moved The Repo That Its Requested From
+    echo Neofetch
+    echo Installable By packer install-neofetch
+    echo Can Be Magneted: Yes
+    echo End Of Package List
+    ;;
+    
+    magnet-neofetch-code)
+    sudo mkdir ~/MagnetedCodePacker
+    sudo echo Magenting!
+    sudo cp /data/data/com.termux/files/bin/neofetch ~/MagnetedCodePacker/Neofetch
+    ;;
+    
+    
   *)
-    echo "Nothing Picked To Install"
+    echo "Nothing Picked To (Un)Install"
+    echo For A Package Request Ask PokeyManatee4 To Add A New Package To The Repo And What The Package Or Why I Should Add It To The Repo
     ;;
 esac
